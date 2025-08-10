@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanfaino - Hamburguesas Gourmet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #FFD700;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gray: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        header {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo {
+            max-width: 300px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            color: var(--light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #E05D00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 107, 0, 0.1);
+        }
+        
+        .gallery {
+            padding: 4rem 2rem;
+            background-color: var(--dark);
+        }
+        
+        .gallery-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            aspect-ratio: 1/1;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-item-desc {
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1607013251379-e6aec68aa5ec');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        footer {
+            background-color: #111;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #aaa;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            background-color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .gallery-title, .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./assets/imagenes/portada.jpg" alt="Hamburguesas Chanfaino" class="hero-image">
+        <div class="hero-overlay">
+            <!-- Agrega aquí tu logo si tienes uno -->
+            <!-- <img src="./imagenes/logo.png" alt="Chanfaino Logo" class="logo"> -->
+            <h1>CHANFAINO</h1>
+            <p class="tagline">Las hamburguesas más jugosas de Colima</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="/app" class="btn">
+                <i class="fas fa-utensils"></i> Ordena ya!
+            </a>
+            <a href="https://drive.google.com/file/d/1dQZMdYBZxn9BquSeEv538M4ZrdDI16Jh/view" class="btn btn-secondary">
+                <i class="fas fa-book"></i> Ver Menú
+            </a>
+            <a href="https://wa.me/3322563639?text=Quisiera%20más%20ayuda%20acerca%20del%20asador%20del%20chanfainop&send=1" target="_blank" class="btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+    
+    <section class="gallery">
+        <h2 class="gallery-title">Nuestras Especialidades</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="./assets/imagenes/imagen1.jpg" alt="Hamburguesa Chanfaino" class="gallery-img">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-item-title">Chanfaino Clásica</h3>
+                    <p class="gallery-item-desc">Carne 100% res con queso derretido y nuestros ingredientes secretos</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/imagenes/imagen2.jpg" alt="Hamburguesa Doble" class="gallery-img">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-item-title">Doble Chanfaino</h3>
+                    <p class="gallery-item-desc">Doble carne, doble queso, doble delicia</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/imagenes/imagen3.jpg" alt="Hamburguesa Especial" class="gallery-img">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-item-title">Especial de la Casa</h3>
+                    <p class="gallery-item-desc">Nuestra receta premiada con ingredientes gourmet</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/imagenes/imagen4.jpg" alt="Hamburguesa BBQ" class="gallery-img">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-item-title">BBQ Explosión</h3>
+                    <p class="gallery-item-desc">Salsa BBQ casera con cebolla caramelizada</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/imagenes/imagen5.jpg" alt="Hamburguesa Picante" class="gallery-img">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-item-title">Chanfaino Picante</h3>
+                    <p class="gallery-item-desc">Para los amantes del picante, con nuestra salsa especial</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/imagenes/imagen6.jpg" alt="Hamburguesa Vegetariana" class="gallery-img">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-item-title">Opción Vegetariana</h3>
+                    <p class="gallery-item-desc">Deliciosa alternativa para todos los gustos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2 class="cta-title">¿Listo para probar la mejor hamburguesa de Colima?</h2>
+        <p class="cta-text">Haz tu pedido ahora y disfruta de una experiencia gastronómica única con nuestras hamburguesas artesanales preparadas con los mejores ingredientes.</p>
+        <a href="https://wa.me/3322563639?text=Quiero%20hacer%20un%20pedido&send=1" class="btn">
+            <i class="fab fa-whatsapp"></i> Haz tu pedido por WhatsApp
+        </a>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Chanfaino</h3>
+                <p>Las hamburguesas más sabrosas y jugosas de Colima, preparadas con amor y los mejores ingredientes.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Horario</h3>
+                <p>Lunes a Viernes: 12pm - 10pm</p>
+                <p>Sábado y Domingo: 11am - 11pm</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <a href="tel:+523121321400"><i class="fas fa-phone"></i> 312 132 1400</a>
+                <a href="mailto:contacto@chanfaino.com"><i class="fas fa-envelope"></i> contacto@chanfaino.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Colima, México</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Chanfaino Colima. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
