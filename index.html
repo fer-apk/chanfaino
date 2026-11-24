@@ -237,7 +237,7 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
 <section class="dark" id="menu"><div class="wrap">
   <p class="kicker rv">Menú</p><h2 class="rv">Lo que sale <em>de la parrilla</em></h2>
   <p class="lead rv">Explora nuestros platillos por categoría o abre el menú completo.</p>
-  <a class="btn fill rv menu-pdf" href="./Men%C3%BA%20Chanfaino%20.pdf" target="_blank" rel="noopener"><span>Abrir menú completo (PDF)</span></a>
+  <a class="btn fill rv menu-pdf" href="./menu.pdf" target="_blank" rel="noopener"><span>Abrir menú completo (PDF)</span></a>
   <div class="tabs rv" id="tabs" role="tablist" aria-label="Categorías del menú"></div>
 </div>
 <div class="mq" id="mq" aria-live="polite"><div class="row" id="r1"></div><div class="row rev" id="r2"></div></div>
@@ -299,8 +299,11 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
    son marcadores. Lo que dejes vacío ("") se oculta o dice "Por confirmar".
    ===================================================================== */
 const CONFIG = {
-  telefono:"", whatsapp:"", pedidoUrl:"", direccion:"", mapaEmbed:"", mapaLink:"",
-  horarios:[],   // ej. [["Lun–Jue","1:00 – 10:00 pm"]]
+  telefono:"312 323 7930", whatsapp:"523123237930", pedidoUrl:"",
+  direccion:"Palma Kerpis 52, colonia Santa Bárbara, Colima",
+  mapaEmbed:"https://maps.google.com/maps?q=Palma+Kerpis+52%2C+Colonia+Santa+B%C3%A1rbara%2C+Colima&output=embed",
+  mapaLink:"https://www.google.com/maps/search/?api=1&query=Palma+Kerpis+52%2C+Colonia+Santa+B%C3%A1rbara%2C+Colima",
+  horarios:[["Martes a sábado","1:00 pm – 12:00 am"],["Domingo","1:00 pm – 8:00 pm"]],
   redes:[],      // ej. [["Instagram","https://instagram.com/…"]]
   cifras:[],     // ej. [["Año","2015"],["Sucursales","2"],["Cortes","12"]]
   /* Fotos locales disponibles en images/. */
@@ -310,25 +313,23 @@ const CONFIG = {
     esp1:"images/comida/chanfainord.jpg",esp2:"images/comida/cecina.jpg",esp3:"images/comida/porkbelly.jpg",
     esp4:"images/comida/tacos premy.jpg",esp5:"images/comida/minihamburguesas.jpg",
     exp1:"images/zonas/puros 2.jpeg",exp2:"images/zonas/zona tele.jpeg",exp3:"images/zonas/zona entrada.jpeg",
-    g1:"images/comida/chanfainord.jpg",g2:"images/comida/cecina.jpg",g3:"images/comida/chilaquilesverdes.jpeg",
+    g1:"images/comida/chanfainord.jpg",g2:"images/comida/cecina.jpg",g3:"images/comida/tacos.jpg",
     g4:"images/comida/corte 1.jpg",g5:"images/comida/corte 2.jpg",g6:"images/comida/corte3.jpeg",
     g7:"images/comida/ensaladacesar.jpg",g8:"images/comida/minihamburguesas.jpg",g9:"images/comida/porkbelly.jpg",
     g10:"images/comida/tacos premy.jpg",g11:"images/comida/tacos.jpg",g12:"images/comida/volcan.jpg"
   },
   cintaTexto:["Hamburguesas","Cortes","A la parrilla","Sabor intenso","Chanfaino"],
-  categorias:["Parrilla y cortes","Tacos","Desayunos","Otros","Bebidas"],
+  categorias:["Parrilla y cortes","Tacos","Otros","Bebidas"],
   menu:[ // {cat, nombre, desc, precio, img}
-    {cat:"Parrilla y cortes",nombre:"Chanfainord",desc:"Carne preparada a la parrilla.",precio:"",img:"images/comida/chanfainord.jpg"},
+    {cat:"Parrilla y cortes",nombre:"Orden Chanfaino",desc:"Carne preparada a la parrilla.",precio:"",img:"images/comida/chanfainord.jpg"},
     {cat:"Parrilla y cortes",nombre:"Cecina",desc:"Cecina servida con frijoles.",precio:"",img:"images/comida/cecina.jpg"},
-    {cat:"Parrilla y cortes",nombre:"Corte 1",desc:"Corte de carne a la parrilla.",precio:"",img:"images/comida/corte 1.jpg"},
-    {cat:"Parrilla y cortes",nombre:"Corte 2",desc:"Corte de carne a la parrilla.",precio:"",img:"images/comida/corte 2.jpg"},
-    {cat:"Parrilla y cortes",nombre:"Corte 3",desc:"Corte de carne a la parrilla.",precio:"",img:"images/comida/corte3.jpeg"},
+    {cat:"Parrilla y cortes",nombre:"Rib Eye",desc:"Corte de carne a la parrilla.",precio:"",img:"images/comida/corte 1.jpg"},
+    {cat:"Parrilla y cortes",nombre:"picana",desc:"Corte de carne a la parrilla.",precio:"",img:"images/comida/corte 2.jpg"},
+    {cat:"Parrilla y cortes",nombre:"vacio",desc:"Corte de carne a la parrilla.",precio:"",img:"images/comida/corte3.jpeg"},
     {cat:"Parrilla y cortes",nombre:"Pork belly",desc:"Preparado al fuego.",precio:"",img:"images/comida/porkbelly.jpg"},
     {cat:"Tacos",nombre:"Tacos premium",desc:"Tacos de la casa.",precio:"",img:"images/comida/tacos premy.jpg"},
     {cat:"Tacos",nombre:"Tacos",desc:"Tacos de la casa.",precio:"",img:"images/comida/tacos.jpg"},
     {cat:"Tacos",nombre:"Volcán",desc:"Volcán preparado a la parrilla.",precio:"",img:"images/comida/volcan.jpg"},
-    {cat:"Desayunos",nombre:"Chilaquiles verdes",desc:"Chilaquiles para el desayuno.",precio:"",img:"images/comida/chilaquilesverdes.jpeg"},
-    {cat:"Desayunos",nombre:"Bebidas de desayuno",desc:"Bebidas para acompañar el desayuno.",precio:"",img:"images/drinks/bebidas desayunos.jpeg"},
     {cat:"Otros",nombre:"Ensalada César",desc:"Ensalada César de la casa.",precio:"",img:"images/comida/ensaladacesar.jpg"},
     {cat:"Otros",nombre:"Mini hamburguesas",desc:"Hamburguesas en tamaño mini.",precio:"",img:"images/comida/minihamburguesas.jpg"},
     {cat:"Bebidas",nombre:"Bebida",desc:"Bebida de la casa.",precio:"",img:"images/drinks/bebida1.jpeg"}
@@ -423,7 +424,7 @@ $('#gv').innerHTML=cols;
 $$('#gv .trk').forEach(t=>{[...t.children].forEach((el,i)=>{const k=el.dataset.img;fillPh(el,C.imagenes[k]);if(i>=3)el.setAttribute('aria-hidden','true')})});
 
 /* Contacto */
-const rows=[["Dirección",C.direccion?esc(C.direccion):PEND],["Teléfono",C.telefono?`<a href="tel:${esc(C.telefono.replace(/[^\d+]/g,''))}">${esc(C.telefono)}</a>`:PEND]];
+const rows=[["Dirección",C.direccion?(C.mapaLink?`<a href="${esc(C.mapaLink)}" target="_blank" rel="noopener">${esc(C.direccion)}</a>`:esc(C.direccion)):PEND],["Teléfono",C.telefono?`<a href="tel:${esc(C.telefono.replace(/[^\d+]/g,''))}">${esc(C.telefono)}</a>`:PEND]];
 if(C.whatsapp)rows.push(["WhatsApp",`<a href="${wa('Hola, quiero información de Chanfaino.')}" target="_blank" rel="noopener">Escríbenos</a>`]);
 rows.push(["Horarios",C.horarios.length?C.horarios.map(([d,h])=>`${esc(d)} · ${esc(h)}`).join('<br>'):PEND]);
 if(C.redes.length)rows.push(["Redes",C.redes.map(([a,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a>`).join(' · ')]);
@@ -435,7 +436,7 @@ const w='<span>Chanfaino</span>';$('#bg1').innerHTML=w.repeat(8);$('#bg2').inner
 $$('[data-link=pedido]').forEach(a=>{if(pedido){a.href=pedido;a.target="_blank";a.rel="noopener";a.hidden=false}});
 const orb=$('#orb');if(pedido){orb.href=pedido;orb.target="_blank";orb.rel="noopener";orb.setAttribute('aria-label','Hacer un pedido');$('#orbT').textContent='PIDE AHORA • ANTÓJATE • PIDE AHORA • ANTÓJATE • '}
 const cr=$('#ctaRow');cr.innerHTML=`<a class="btn" href="#menu"><span>Ver el menú</span></a>`+(C.mapaLink?`<a class="btn" href="${esc(C.mapaLink)}" target="_blank" rel="noopener"><span>Cómo llegar</span></a>`:'');
-$('#fcon').innerHTML=[C.direccion&&esc(C.direccion),C.telefono&&`<a href="tel:${esc(C.telefono.replace(/[^\d+]/g,''))}">${esc(C.telefono)}</a>`].filter(Boolean).map(x=>`<li>${x}</li>`).join('')||'<li class="pend">Por confirmar</li>';
+$('#fcon').innerHTML=[C.direccion&&(C.mapaLink?`<a href="${esc(C.mapaLink)}" target="_blank" rel="noopener">${esc(C.direccion)}</a>`:esc(C.direccion)),C.telefono&&`<a href="tel:${esc(C.telefono.replace(/[^\d+]/g,''))}">${esc(C.telefono)}</a>`].filter(Boolean).map(x=>`<li>${x}</li>`).join('')||'<li class="pend">Por confirmar</li>';
 $('#fsoc').innerHTML=C.redes.length?C.redes.map(([a,u])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a></li>`).join(''):'<li class="pend">Por confirmar</li>';
 $('#yr').textContent=new Date().getFullYear();$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
 const ctaS=$('#cta');ctaS.addEventListener('pointermove',e=>{const r=ctaS.getBoundingClientRect();ctaS.style.setProperty('--cx',e.clientX-r.left+'px');ctaS.style.setProperty('--cy',e.clientY-r.top+'px')});
