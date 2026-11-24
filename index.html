@@ -43,7 +43,7 @@ h2 em,h1 em{font-style:italic;color:var(--ember);font-weight:400}
 .pre-l,.pre-r{position:absolute;top:0;bottom:0;width:50.3%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 2px,transparent 2px 34px),var(--coal);transition:transform .95s var(--ease) .2s}
 .pre-l{left:0}.pre-r{right:0}
 .pre-c{position:relative;text-align:center;transition:opacity .4s,transform .6s var(--ease)}
-.pre-logo{font:700 clamp(3.2rem,13vw,11rem)/1 var(--serif);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(242,234,220,.4);background:linear-gradient(0deg,var(--ember),var(--ember2) 40%,var(--mustard) 75%,#fff) bottom/100% 0% no-repeat;-webkit-background-clip:text;background-clip:text;padding:0 .05em}
+.pre-logo{font:700 clamp(2.5rem,12vw,10rem)/1 var(--serif);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(242,234,220,.4);background:linear-gradient(0deg,var(--ember),var(--ember2) 40%,var(--mustard) 75%,#fff) bottom/100% 0% no-repeat;-webkit-background-clip:text;background-clip:text;padding:0 .05em}
 .pre-s{margin-top:18px;display:flex;justify-content:center;gap:22px;font:700 .72rem var(--sans);letter-spacing:.28em;color:var(--mustard);text-transform:uppercase}
 .pre.done .pre-l{transform:translateX(-101%)}.pre.done .pre-r{transform:translateX(101%)}.pre.done .pre-c{opacity:0;transform:translateY(-30px)}
 
@@ -51,7 +51,7 @@ h2 em,h1 em{font-style:italic;color:var(--ember);font-weight:400}
 header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0);transition:transform .5s var(--ease),background .4s}
 header.solid{background:rgba(20,17,15,.88);backdrop-filter:blur(12px)}header.hid{transform:translateY(-101%)}
 .bar{display:flex;align-items:center;justify-content:space-between;height:72px;color:var(--bone)}
-.logo{font:700 1.7rem var(--serif);letter-spacing:-.03em}.logo i{color:var(--ember2)}
+.logo{font:700 clamp(1.4rem,7vw,2rem)/1 var(--serif);letter-spacing:-.03em;white-space:nowrap}.bar .logo{color:#fff}.logo i{color:var(--ember2)}
 nav ul{display:flex;gap:30px;list-style:none}
 nav a{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.85;position:relative;padding:4px 0}
 nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ember2);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
@@ -179,8 +179,8 @@ nav.open{opacity:1;pointer-events:auto}nav ul{flex-direction:column;align-items:
 footer{background:#0e0c0b;color:#9c9082;padding:70px 0 calc(28px + env(safe-area-inset-bottom,0));font-size:.86rem;overflow:hidden}
 .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px}
 footer h4{font:700 .7rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mustard);margin-bottom:14px}
-footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}footer .logo{color:var(--bone);font-size:2.2rem}
-.mark{font:700 17.6vw/.8 var(--serif);text-transform:uppercase;letter-spacing:-.05em;white-space:nowrap;margin:56px 0 14px;color:transparent;-webkit-text-stroke:1px rgba(242,234,220,.16);background:linear-gradient(0deg,var(--ember),var(--mustard)) bottom/100% 0% no-repeat;-webkit-background-clip:text;background-clip:text;transition:background-size 2.4s var(--ease)}
+footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}footer .logo{color:var(--bone);font-size:clamp(1.3rem,5vw,2rem)}
+.mark{font:700 clamp(2rem,12.5vw,11rem)/.9 var(--serif);text-transform:uppercase;letter-spacing:-.05em;white-space:nowrap;margin:56px 0 14px;color:transparent;-webkit-text-stroke:1px rgba(242,234,220,.34);background:linear-gradient(0deg,var(--ember),var(--mustard)) bottom/100% 0% no-repeat;-webkit-background-clip:text;background-clip:text;transition:background-size 2.4s var(--ease)}
 .mark.in{background-size:100% 100%}
 .fbot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #2a2420;padding-top:20px}
 .top{border:1px solid #4a4038;border-radius:999px;padding:8px 18px;background:none;color:var(--bone)}.top:hover{background:var(--ember);border-color:var(--ember)}
@@ -228,8 +228,10 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
   <div class="stack rv"><div class="ph" data-img="esencia1" data-label="Foto · cocina / parrilla"></div><div class="ph b" data-img="esencia2" data-label="Foto · detalle"></div></div>
   <div>
     <p class="kicker rv">Nuestra esencia</p><h2 class="rv">Carne con <em>carácter</em></h2>
-    <p class="lead rv">Escribe aquí la historia de Chanfaino: de dónde viene, qué lo hace distinto y cómo trabajan la carne. Texto editable.</p>
-    <p class="lead rv" style="margin-top:14px">Segundo párrafo opcional: proceso, ingredientes, filosofía de la casa.</p>
+    <h3 class="rv">Una tradición que se sirve con orgullo.</h3>
+    <p class="lead rv">Desde 1974, Chanfaino es más que un lugar para disfrutar de buena comida: es una tradición que ha pasado de generación en generación, construyendo una historia alrededor del sabor, la pasión y el gusto por compartir.</p>
+    <p class="lead rv" style="margin-top:14px">Con el paso de los años, hemos creado una identidad propia, donde cada corte, cada hamburguesa y cada especialidad lleva el sello de nuestra casa. Sabores únicos, recetas con carácter y una esencia que permanece intacta: hacer de cada visita una experiencia que se recuerde.</p>
+    <p class="lead rv" style="margin-top:14px"><strong>Chanfaino. Desde 1974, el sabor de una tradición que sigue encendida.</strong></p>
     <div class="nums rv" id="nums"></div>
   </div>
 </div></section>
@@ -241,7 +243,6 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
   <div class="tabs rv" id="tabs" role="tablist" aria-label="Categorías del menú"></div>
 </div>
 <div class="mq" id="mq" aria-live="polite"><div class="row" id="r1"></div><div class="row rev" id="r2"></div></div>
-<div class="wrap"><p class="edit">✎ Edita nombres, descripciones, precios y fotos en <b>CONFIG.menu</b> (inicio del script). Precio vacío = no se muestra.</p></div>
 </section>
 
 <section class="espec" id="especialidades"><div class="wrap">
@@ -301,10 +302,10 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
 const CONFIG = {
   telefono:"312 323 7930", whatsapp:"523123237930", pedidoUrl:"",
   direccion:"Palma Kerpis 52, colonia Santa Bárbara, Colima",
-  mapaEmbed:"https://maps.google.com/maps?q=Palma+Kerpis+52%2C+Colonia+Santa+B%C3%A1rbara%2C+Colima&output=embed",
-  mapaLink:"https://www.google.com/maps/search/?api=1&query=Palma+Kerpis+52%2C+Colonia+Santa+B%C3%A1rbara%2C+Colima",
+  mapaEmbed:"https://maps.google.com/maps?layer=c&cbll=19.2621854%2C-103.7145557&cbp=11%2C0%2C0%2C0%2C0&output=svembed",
+  mapaLink:"https://www.google.com/maps/search/?api=1&query=Palma+Kerpis+52%2C+Colonia+Santa+B%C3%A1rbara%2C+Colima&query_place_id=ChIJT_cInsdaJYQRyQ1yNX2s",
   horarios:[["Martes a sábado","1:00 pm – 12:00 am"],["Domingo","1:00 pm – 8:00 pm"]],
-  redes:[],      // ej. [["Instagram","https://instagram.com/…"]]
+  redes:[["Instagram","https://www.instagram.com/chanfaino.colima/"],["Facebook","https://www.facebook.com/CHANFAINO/?locale=es_LA"]],
   cifras:[],     // ej. [["Año","2015"],["Sucursales","2"],["Cortes","12"]]
   /* Fotos locales disponibles en images/. */
   imagenes:{
@@ -335,7 +336,7 @@ const CONFIG = {
     {cat:"Bebidas",nombre:"Bebida",desc:"Bebida de la casa.",precio:"",img:"images/drinks/bebida1.jpeg"}
   ],
   especialidades:[ // mínimo 3, ideal 5 o más (agrega claves esp6, esp7… en imagenes)
-    {nombre:"Chanfainord",desc:"Carne preparada a la parrilla."},
+    {nombre:"Orden Chanfaino",desc:"Carne preparada a la parrilla."},
     {nombre:"Cecina",desc:"Cecina servida con frijoles."},
     {nombre:"Pork belly",desc:"Una opción para disfrutar al fuego."},
     {nombre:"Tacos premium",desc:"Tacos de la casa."},
@@ -429,7 +430,7 @@ if(C.whatsapp)rows.push(["WhatsApp",`<a href="${wa('Hola, quiero información de
 rows.push(["Horarios",C.horarios.length?C.horarios.map(([d,h])=>`${esc(d)} · ${esc(h)}`).join('<br>'):PEND]);
 if(C.redes.length)rows.push(["Redes",C.redes.map(([a,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a>`).join(' · ')]);
 $('#info').innerHTML=rows.map(([a,b])=>`<li><b>${a}</b><div>${b}</div></li>`).join('');
-$('#map').innerHTML=C.mapaEmbed?`<iframe src="${esc(C.mapaEmbed)}" title="Mapa de Chanfaino" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`:`<p>Mapa pendiente.<br><small>Pega el enlace de «Insertar mapa» de Google Maps en <b>CONFIG.mapaEmbed</b>.</small></p>`;
+$('#map').innerHTML=C.mapaEmbed?`<iframe src="${esc(C.mapaEmbed)}" title="Street View de Chanfaino" allow="accelerometer; gyroscope; magnetometer; fullscreen" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`:`<p>Mapa pendiente.<br><small>Pega el enlace de «Insertar mapa» de Google Maps en <b>CONFIG.mapaEmbed</b>.</small></p>`;
 
 /* Cierre: orbe, textos de fondo, enlaces reales */
 const w='<span>Chanfaino</span>';$('#bg1').innerHTML=w.repeat(8);$('#bg2').innerHTML=w.repeat(8);
