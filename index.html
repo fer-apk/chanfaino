@@ -216,7 +216,7 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
     <h1 aria-label="Chanfaino, sabor a fuego"><span class="w1" id="w1" aria-hidden="true">CHANFAINO</span><span class="w2" aria-hidden="true">sabor <em>a fuego</em></span></h1>
     <div class="hero-row">
       <p class="lead" data-edit="hero-texto">Carne bien preparada, hamburguesas que se recuerdan y cortes con personalidad. Conoce el menú y ven a probarlo.</p>
-      <div class="ctas"><a class="btn fill" href="#menu"><span>Ver menú</span></a><a class="btn" href="#" data-link="pedido" hidden><span>Pedir ahora</span></a><a class="btn" href="#contacto"><span>Cómo llegar</span></a></div>
+      <div class="ctas"><a class="btn fill" href="./menu.pdf" target="_blank" rel="noopener"><span>Ver menú</span></a><a class="btn" href="#" data-link="pedido" hidden><span>Pedir ahora</span></a><a class="btn" href="#contacto"><span>Cómo llegar</span></a></div>
     </div>
     <a class="badge" href="#menu" aria-label="Ir al menú"><svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="bc" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs><text><textPath href="#bc" textLength="470">CARNES • CORTES • HAMBURGUESAS • FUEGO • </textPath></text></svg><b>↓</b></a>
   </div>
@@ -229,9 +229,9 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
   <div>
     <p class="kicker rv">Nuestra esencia</p><h2 class="rv">Carne con <em>carácter</em></h2>
     <h3 class="rv">Una tradición que se sirve con orgullo.</h3>
-    <p class="lead rv">Desde 1974, Chanfaino es más que un lugar para disfrutar de buena comida: es una tradición que ha pasado de generación en generación, construyendo una historia alrededor del sabor, la pasión y el gusto por compartir.</p>
+    <p class="lead rv">Desde 1975, Chanfaino es más que un lugar para disfrutar de buena comida: es una tradición que ha pasado de generación en generación, construyendo una historia alrededor del sabor, la pasión y el gusto por compartir.</p>
     <p class="lead rv" style="margin-top:14px">Con el paso de los años, hemos creado una identidad propia, donde cada corte, cada hamburguesa y cada especialidad lleva el sello de nuestra casa. Sabores únicos, recetas con carácter y una esencia que permanece intacta: hacer de cada visita una experiencia que se recuerde.</p>
-    <p class="lead rv" style="margin-top:14px"><strong>Chanfaino. Desde 1974, el sabor de una tradición que sigue encendida.</strong></p>
+    <p class="lead rv" style="margin-top:14px"><strong>Chanfaino. Desde 1975, el sabor de una tradición que sigue encendida.</strong></p>
     <div class="nums rv" id="nums"></div>
   </div>
 </div></section>
@@ -239,7 +239,7 @@ footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--bone)}foo
 <section class="dark" id="menu"><div class="wrap">
   <p class="kicker rv">Menú</p><h2 class="rv">Lo que sale <em>de la parrilla</em></h2>
   <p class="lead rv">Explora nuestros platillos por categoría o abre el menú completo.</p>
-  <a class="btn fill rv menu-pdf" href="./menu.pdf" target="_blank" rel="noopener"><span>Abrir menú completo (PDF)</span></a>
+  <a class="btn fill rv menu-pdf" href="./menu.pdf" target="_blank" rel="noopener"><span>Abrir menú completo</span></a>
   <div class="tabs rv" id="tabs" role="tablist" aria-label="Categorías del menú"></div>
 </div>
 <div class="mq" id="mq" aria-live="polite"><div class="row" id="r1"></div><div class="row rev" id="r2"></div></div>
@@ -436,7 +436,7 @@ $('#map').innerHTML=C.mapaEmbed?`<iframe src="${esc(C.mapaEmbed)}" title="Street
 const w='<span>Chanfaino</span>';$('#bg1').innerHTML=w.repeat(8);$('#bg2').innerHTML=w.repeat(8);
 $$('[data-link=pedido]').forEach(a=>{if(pedido){a.href=pedido;a.target="_blank";a.rel="noopener";a.hidden=false}});
 const orb=$('#orb');if(pedido){orb.href=pedido;orb.target="_blank";orb.rel="noopener";orb.setAttribute('aria-label','Hacer un pedido');$('#orbT').textContent='PIDE AHORA • ANTÓJATE • PIDE AHORA • ANTÓJATE • '}
-const cr=$('#ctaRow');cr.innerHTML=`<a class="btn" href="#menu"><span>Ver el menú</span></a>`+(C.mapaLink?`<a class="btn" href="${esc(C.mapaLink)}" target="_blank" rel="noopener"><span>Cómo llegar</span></a>`:'');
+const cr=$('#ctaRow');cr.innerHTML=`<a class="btn" href="./menu.pdf" target="_blank" rel="noopener"><span>Ver el menú</span></a>`+(C.mapaLink?`<a class="btn" href="${esc(C.mapaLink)}" target="_blank" rel="noopener"><span>Cómo llegar</span></a>`:'');
 $('#fcon').innerHTML=[C.direccion&&(C.mapaLink?`<a href="${esc(C.mapaLink)}" target="_blank" rel="noopener">${esc(C.direccion)}</a>`:esc(C.direccion)),C.telefono&&`<a href="tel:${esc(C.telefono.replace(/[^\d+]/g,''))}">${esc(C.telefono)}</a>`].filter(Boolean).map(x=>`<li>${x}</li>`).join('')||'<li class="pend">Por confirmar</li>';
 $('#fsoc').innerHTML=C.redes.length?C.redes.map(([a,u])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a></li>`).join(''):'<li class="pend">Por confirmar</li>';
 $('#yr').textContent=new Date().getFullYear();$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
