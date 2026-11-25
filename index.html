@@ -309,7 +309,7 @@ const CONFIG = {
   cifras:[],     // ej. [["Año","2015"],["Sucursales","2"],["Cortes","12"]]
   /* Fotos locales disponibles en images/. */
   imagenes:{
-    hero1:"images/comida/cecina.jpg",hero2:"images/comida/corte 1.jpg",hero3:"images/comida/tacos premy.jpg",
+    hero1:"images/portada1.jpeg",hero2:"images/portada2.jpeg",hero3:"images/portada3.jpeg",
     esencia1:"images/zonas/zona entrada.jpeg",esencia2:"images/zonas/puros.jpeg",
     esp1:"images/comida/chanfainord.jpg",esp2:"images/comida/cecina.jpg",esp3:"images/comida/porkbelly.jpg",
     esp4:"images/comida/tacos premy.jpg",esp5:"images/comida/minihamburguesas.jpg",
@@ -362,7 +362,7 @@ function go(){if(started)return;started=true;$('#pre').classList.add('done');
   setTimeout(go,5000)})();
 
 /* Fotos */
-function fillPh(el,src){if(!src)return;const i=new Image();i.alt="";i.loading="lazy";i.decoding="async";i.onload=()=>el.classList.add('has-img');i.onerror=()=>console.warn("No se encontró la imagen:",src);el.appendChild(i);i.src=src}
+function fillPh(el,src){if(!src)return;const i=new Image();i.alt="";i.loading=el.classList.contains('slide')?'eager':'lazy';i.decoding="async";i.onload=()=>el.classList.add('has-img');i.onerror=()=>console.warn("No se encontró la imagen:",src);el.appendChild(i);i.src=src}
 const fillKeys=root=>$$(root+' [data-img]').forEach(el=>fillPh(el,C.imagenes[el.dataset.img]));
 fillKeys('body');
 
